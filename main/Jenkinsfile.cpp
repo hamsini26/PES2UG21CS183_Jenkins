@@ -5,8 +5,8 @@ pipeline {
         stage('Clone repository') {
             steps {
                 checkout([$class:'GitSCM',
-                    branches: [[branch: '*/main']],
-                    userRemoteConfigs: 'https://github.com/hamsini26/PES2UG21CS183_Jenkins.git']])
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs:[[url:'https://github.com/hamsini26/PES2UG21CS183_Jenkins.git']]])
                 
             }
         }
