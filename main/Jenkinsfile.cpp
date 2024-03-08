@@ -7,7 +7,7 @@ pipeline {
                 checkout([
                     scm: [$URL Git],
                     branches: [[branch: 'main']],
-                    url: 'https://github.com/Jatinsharma159/Jenkins.git'
+                    url: 'https://github.com/hamsini26/PES2UG21CS183_Jenkins'
                 ])
             }
         }
