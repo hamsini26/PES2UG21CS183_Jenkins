@@ -4,17 +4,16 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                checkout([
-                    scm: [$URL Git],
-                    branches: [[branch: 'main']],
-                    url: 'https://github.com/hamsini26/PES2UG21CS183_Jenkins'
-                ])
+                checkout([$class:'GitSCM',
+                    branches: [[branch: '*/main']],
+                    userRemoteConfigs: 'https://github.com/hamsini26/PES2UG21CS183_Jenkins.git']])
+                
             }
         }
         stage('Build') {
             steps {
-                build job: 'PES2UG21CS183-1', wait: true
-                sh 'sh g++ main.cpp -o output'
+                build 'PES2UG21CS183-1'
+                sh 'g++ main.cpp -o output'
             }
         }
         stage('Test') {
@@ -31,7 +30,7 @@ pipeline {
 
     post {
         failure {
-            echo 'Pipeline failed'
+            error 'Pipeline failed'
         }
     }
 }
