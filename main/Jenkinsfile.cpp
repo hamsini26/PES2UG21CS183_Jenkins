@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                build job: 'PES2UG19CS159-1', wait: true
+                build job: 'PES2UG21CS183-1', wait: true
                 sh 'sh g++ main.cpp -o output'
             }
         }
